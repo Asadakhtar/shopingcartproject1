@@ -1,0 +1,39 @@
+package com.asad.Shoppingcart.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.asad.Shoppingcart.DAO.CategoryDAO;
+import com.asad.Shoppingcart.modal.Category;
+
+
+@Controller
+public class CategoryController {
+	@Autowired
+	private CategoryDAO categoryDAO;	
+	@Autowired(required=true)
+	public void setCategoryDAO(CategoryDAO categoryDAO) {
+		this.categoryDAO = categoryDAO;
+	}
+		@RequestMapping("/addcategory")
+		public ModelAndView addCategory1()
+		{
+			ModelAndView mv=new ModelAndView("AddCategory");
+			mv.addObject("category",new Category());
+			return mv;
+			
+		}
+		
+		@RequestMapping("/categoryadd")
+		public  ModelAndView categoryAdd(@ModelAttribute("category") Category c)
+		{
+			ModelAndView mv = new ModelAndView("Home");
+			categoryDAO.addCategory(c);
+			return mv;
+			
+		}
+		
+}

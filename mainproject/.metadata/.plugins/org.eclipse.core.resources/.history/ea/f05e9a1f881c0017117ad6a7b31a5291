@@ -1,0 +1,20 @@
+package com.asad.Shoppingcart.modal;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+@Entity
+public class Suplier implements Serializable {
+	@Id	
+	private String suplierId;
+	@Column(unique=true)
+	private String suplierName;
+	private String suplierDescription;
+	@OneToMany(mappedBy="category",fetch=FetchType.EAGER)
+	Product getAllproduct;
+	
+}

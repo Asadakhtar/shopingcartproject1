@@ -1,0 +1,46 @@
+package com.asad.Shoppingcart.DAO;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.asad.Shoppingcart.modal.Product;
+
+@Transactional
+@Repository("productDAO")
+public class ProductDAOImpl implements ProductDAO {
+	public ProductDAOImpl(){}
+	@Autowired
+	private SessionFactory sessionFactory;
+		
+		
+	
+		public ProductDAOImpl(SessionFactory sessionFactory) {
+		super();
+		this.sessionFactory = sessionFactory;
+	}
+
+
+		public void addProduct(Product p) {
+			Session pp=sessionFactory.getCurrentSession();
+			pp.persist(p);
+			
+		
+		}
+
+
+		public List<Product> list() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+		public boolean save(Product product) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+}

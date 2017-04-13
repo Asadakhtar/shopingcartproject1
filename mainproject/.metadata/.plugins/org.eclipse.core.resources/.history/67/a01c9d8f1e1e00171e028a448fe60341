@@ -1,0 +1,87 @@
+package com.asad.Shoppingcart.DAO;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.asad.Shoppingcart.modal.Product;
+import com.asad.Shoppingcart.modal.Supplier;
+
+@Repository("supplier")
+@Transactional
+public class SupplierDAOImpl implements SupplierDAO {
+	public SupplierDAOImpl(){}
+	@Autowired
+	private SessionFactory sessionFactory;
+		
+
+		public SupplierDAOImpl(SessionFactory sessionFactory) {
+		super();
+		this.sessionFactory = sessionFactory;
+	}
+public List<Supplier> list() {
+			
+			return	sessionFactory.getCurrentSession().createQuery("from Supplier").list();
+				
+			}
+		public boolean save(Supplier supplier) {
+			try
+			{
+			sessionFactory.getCurrentSession().save(supplier);
+			return true;
+			} catch(Exception e)
+			{
+				e.printStackTrace(); //it will print the error in the console - similar to SOP
+				          //package, class, method line number from which place you are calling
+				return false;
+			}
+			
+		}
+		public boolean update(Supplier supplier) {
+			try {
+				sessionFactory.getCurrentSession().update(supplier);
+				return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+				
+			}
+		}
+		public boolean delete(String suplierId) {
+			try {
+				sessionFactory.getCurrentSession().delete(getSupplierByID(suplierId));
+				return true;
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				return false;
+			}
+			
+		}
+		public boolean delete(Supplier supplier) {
+			try {
+				sessionFactory.getCurrentSession().delete(supplier);
+				return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+				
+			}
+		}
+		public Supplier getSupplierByID(String suplierId) {
+			
+		  
+		  return  (Supplier) sessionFactory.getCurrentSession().createQuery("from Supplier where id = '"+suplierId + "'").uniqueResult();
+			
+		}
+
+		public void addSupplier(Supplier s) {
+			Session aa=sessionFactory.getCurrentSession();
+			aa.persist(s);
+		}
+
+}

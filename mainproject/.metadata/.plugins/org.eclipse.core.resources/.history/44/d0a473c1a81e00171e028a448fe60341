@@ -1,0 +1,49 @@
+package com.asad.Shoppingcart.modal;
+
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+@Entity
+public class Supplier implements Serializable {
+	@Id	
+	private String suplierId;
+	@Column(unique=true)
+	private String suplierName;
+	private String suplierDescription;
+	@OneToMany(mappedBy="supplier",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	private Set<Product> product;
+	
+	public Set<Product> getProduct() {
+		return product;
+	}
+	public void setProduct(Set<Product> product) {
+		this.product = product;
+	}
+	
+	public String getSuplierId() {
+		return suplierId;
+	}
+	public void setSuplierId(String suplierId) {
+		this.suplierId = suplierId;
+	}
+	public String getSuplierName() {
+		return suplierName;
+	}
+	public void setSuplierName(String suplierName) {
+		this.suplierName = suplierName;
+	}
+	public String getSuplierDescription() {
+		return suplierDescription;
+	}
+	public void setSuplierDescription(String suplierDescription) {
+		this.suplierDescription = suplierDescription;
+	}
+	
+
+}

@@ -1,0 +1,7 @@
+package com.asad.Shoppingcart.DAO;
+
+import com.asad.Shoppingcart.modal.Supplier;
+
+public interface SupplierDAO {
+ void addSupplier(Supplier s);
+}

@@ -1,0 +1,30 @@
+package com.asad.Shoppingcart.DAO;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.asad.Shoppingcart.modal.Supplier;
+
+@Repository("supplier")
+@Transactional
+public class SupplierDAOImpl implements SupplierDAO {
+	public SupplierDAOImpl(){}
+	@Autowired
+	private SessionFactory sessionFactory;
+		
+
+		public SupplierDAOImpl(SessionFactory sessionFactory) {
+		super();
+		this.sessionFactory = sessionFactory;
+	}
+
+
+		public void addSupplier(Supplier s) {
+			Session aa=sessionFactory.getCurrentSession();
+			aa.persist(s);
+		}
+
+}

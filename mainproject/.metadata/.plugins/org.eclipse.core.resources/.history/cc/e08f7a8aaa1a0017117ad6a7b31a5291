@@ -1,0 +1,12 @@
+package com.asad.Shoppingcart.DAO;
+
+import java.util.List;
+import java.util.Locale.Category;
+
+import com.asad.Shoppingcart.modal.Product;
+
+public interface ProductDAO {
+	void addProduct(Product p);
+	public List<Product> list();
+
+}

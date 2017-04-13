@@ -1,0 +1,6 @@
+127.0.0.1 - - [04/Apr/2017:17:17:37 +0530] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [04/Apr/2017:17:17:41 +0530] "GET /ShoppingCartFrontEnd/ HTTP/1.1" 200 4545
+0:0:0:0:0:0:0:1 - - [04/Apr/2017:17:17:41 +0530] "GET /resources/images/3593525_s7edge_4.jpg HTTP/1.1" 404 1068
+0:0:0:0:0:0:0:1 - - [04/Apr/2017:17:17:41 +0530] "GET /resources/images/91vDXv2PGZL._SL1500_1.jpg HTTP/1.1" 404 1078
+0:0:0:0:0:0:0:1 - - [04/Apr/2017:17:17:41 +0530] "GET /resources/images/apple-iphone-7-pricing.jpg HTTP/1.1" 404 1080
+0:0:0:0:0:0:0:1 - - [04/Apr/2017:17:17:41 +0530] "GET /ShoppingCartFrontEnd/resource/image/flipkart_logo.jpg HTTP/1.1" 404 1100

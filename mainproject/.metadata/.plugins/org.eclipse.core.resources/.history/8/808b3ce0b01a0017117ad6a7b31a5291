@@ -1,0 +1,6 @@
+package com.asad.Shoppingcart.DAO;
+
+
+public interface Supplier {
+	void addUser(Supplier s);
+}
